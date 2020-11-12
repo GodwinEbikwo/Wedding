@@ -1,0 +1,53 @@
+.content {
+  // background-color: $darkGreen;
+  border: 1px solid #eee;
+  padding: 3rem;
+  min-height: 90vh;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+
+  &--feature {
+    justify-content: flex-start;
+    min-height: 0;
+  }
+
+  .content__breakout {
+    margin: 0 -3rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: span, "NewYork", serif;
+    color: #d6d6d6;
+  }
+
+  .content__breakout--big {
+    font-size: 5.5vw;
+    font-family: "NewYork";
+  }
+
+  .content__breakout--medium {
+    font-size: 6vw;
+  }
+
+  .block {
+    position: relative;
+
+    .img-wrapper {
+      position: relative;
+      overflow: hidden;
+
+      .img-main {
+        opacity: 0.75;
+        mix-blend-mode: multiply;
+        width: 300px;
+        .image {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+  }
+}

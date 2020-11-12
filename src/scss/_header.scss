@@ -1,0 +1,48 @@
+.header {
+  // position: sticky;
+  // width: 100%;
+  // top: 0;
+  // left: 0;
+  padding-top: 2.25rem;
+  padding-bottom: 0.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  background-color: #daebe5;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: rgb(114, 114, 114);
+    margin: 0.26rem 0;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: rgb(114, 114, 114);
+    margin: 0.6rem 0;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-family: "NewYork";
+
+      span {
+        font-size: $font-lg;
+
+        @include breakpoint-down(small) {
+          font-size: 1.275rem;
+        }
+      }
+    }
+  }
+}

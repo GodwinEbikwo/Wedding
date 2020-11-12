@@ -1,0 +1,38 @@
+.hero {
+  height: 100vh;
+  background-image: url("https://res.cloudinary.com/dqv9mfbvt/image/upload/v1605010966/WeddingImage_koqhqm.jpg");
+  background-position: center center;
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+  // opacity: 0.8;
+
+  .box {
+    padding-top: 6.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+      font-family: "NewYork";
+      font-size: 1.55rem;
+      color: #333;
+      @include breakpoint-down(small) {
+        white-space: nowrap;
+        font-size: 1.25rem;
+      }
+    }
+
+    h1 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      color: #333;
+      font-family: "NewYork";
+      font-size: 6.25rem;
+
+      @include breakpoint-down(small) {
+        font-size: 3rem;
+        white-space: nowrap;
+      }
+    }
+  }
+}

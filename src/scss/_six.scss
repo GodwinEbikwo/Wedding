@@ -1,0 +1,59 @@
+.six {
+  background-color: $wd-green;
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  .titlebox {
+    padding: 0 15rem;
+    @include breakpoint-up(medium) {
+      padding: 0 10rem;
+    }
+    @include breakpoint-down(small) {
+      padding: 0 0;
+    }
+
+    h1 {
+      font-family: "NewYork";
+      color: #333;
+      line-height: 160%;
+      font-kerning: auto;
+    }
+
+    .btn {
+      position: relative;
+      background-color: #87d4c5;
+      border: none;
+      font-size: 18px;
+      color: #333;
+      padding: 1rem 3rem;
+      text-align: center;
+      transition-duration: 0.4s;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 3px;
+      letter-spacing: 2.5px;
+    }
+
+    .btn:after {
+      content: "";
+      background: #000;
+      display: block;
+      position: absolute;
+      padding-top: 300%;
+      padding-left: 350%;
+      margin-left: -20px !important;
+      margin-top: -120%;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+
+    .btn:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      transition: 0s;
+    }
+  }
+}

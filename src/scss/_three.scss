@@ -1,0 +1,94 @@
+.three {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    margin: 0 var(--spacing, 0px);
+    transition: margin 0.25s;
+    svg {
+      width: 200px;
+      height: 53px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 7px) translateZ(0);
+      fill: none;
+      stroke: var(--stroke, var(--line));
+      stroke-linecap: round;
+      stroke-width: 2px;
+      stroke-dasharray: var(--offset, 69px) 278px;
+      stroke-dashoffset: 361px;
+      transition: stroke 0.25s ease var(--stroke-delay, 0s),
+        stroke-dasharray 0.35s;
+    }
+
+    &:hover {
+      --spacing: 10px;
+      --stroke: var(--line-active);
+      --stroke-delay: 0.1s;
+      --offset: 180px;
+    }
+  }
+
+  .box {
+    h1 {
+      font-family: "NewYork";
+      font-size: 4rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    #title {
+      font-family: unset;
+    }
+    span {
+      font-size: 1.35rem;
+      font-weight: lighter;
+      color: #333;
+      font-family: "NewYork";
+    }
+
+    #description {
+      font-family: "NewYork";
+      text-align: center;
+      line-height: 120.7%;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      color: #333;
+
+      strong {
+        color: #f69e7b;
+      }
+
+      @include breakpoint-down(small) {
+        font-size: 2rem;
+      }
+      @include breakpoint-up(medium) {
+        font-size: 4rem;
+      }
+    }
+
+    .para {
+      padding: 0 10rem;
+      @include breakpoint-down(small) {
+        padding: 0 0;
+      }
+
+      p {
+        line-height: 135.3%;
+        font-size: 1.35rem;
+        color: #333;
+        font-weight: lighter;
+      }
+    }
+  }
+}

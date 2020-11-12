@@ -1,0 +1,959 @@
+@font-face {
+  font-family: NewYork;
+  src: url("../font/NewYork.otf");
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+}
+
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  -webkit-transform-origin: center right;
+          transform-origin: center right;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+  opacity: 0;
+}
+
+.c-scrollbar:hover {
+  -webkit-transform: scaleX(1.45);
+          transform: scaleX(1.45);
+}
+
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #0c0c0c;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 1.1235rem;
+  line-height: 1.3;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+@media (min-width: 64em) {
+  body {
+    font-size: 1.1235rem;
+  }
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0px;
+  line-height: 1.15;
+}
+
+h4 {
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 2.25rem;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2.35rem;
+  font-weight: 800;
+}
+
+@media (min-width: 64em) {
+  h1 {
+    font-size: 3.25rem;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+  margin-bottom: 1.5625rem;
+}
+
+@media (min-width: 64em) {
+  h2 {
+    font-size: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+}
+
+.container {
+  max-width: 72.375rem;
+  margin: 0 auto;
+}
+
+.container--pall {
+  padding-top: 4.375rem;
+  padding-bottom: 4.375rem;
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+}
+
+@media (min-width: 64em) {
+  .container--pall {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.container--py {
+  padding-top: 4.375rem;
+  padding-bottom: 4.375rem;
+}
+
+@media (min-width: 64em) {
+  .container--py {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.container--px {
+  padding-right: 1.75rem;
+  padding-left: 1.75rem;
+}
+
+.container--pt {
+  padding-top: 4.375rem;
+}
+
+@media (min-width: 64em) {
+  .container--pt {
+    padding-top: 6rem;
+  }
+}
+
+.container--pr {
+  padding-right: 1.75rem;
+}
+
+.container--pb {
+  padding-bottom: 4.375rem;
+}
+
+@media (min-width: 64em) {
+  .container--pb {
+    padding-bottom: 6rem;
+  }
+}
+
+.container--pl {
+  padding-left: 1.75rem;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: #ea5353;
+  cursor: pointer;
+  border: 0;
+  font-weight: 500;
+  border-radius: 3px;
+  color: #111112;
+  font-size: 0.875rem;
+  -webkit-transition: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out;
+  -webkit-box-shadow: 4px 4px 0 0 #000, 0 4px 4px 0 rgba(48, 9, 9, 0.05);
+          box-shadow: 4px 4px 0 0 #000, 0 4px 4px 0 rgba(48, 9, 9, 0.05);
+}
+
+.button:hover {
+  opacity: 0.85;
+  -webkit-transition: all ease-in-out 150ms;
+  transition: all ease-in-out 150ms;
+}
+
+@media (max-width: 63.9375em) {
+  .hide-for-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .hide-for-desktop {
+    display: none;
+  }
+}
+
+.header {
+  padding-top: 2.25rem;
+  padding-bottom: 0.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  background-color: #daebe5;
+}
+
+.header::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #727272;
+  margin: 0.26rem 0;
+}
+
+.header::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #727272;
+  margin: 0.6rem 0;
+}
+
+.header .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .nav a {
+  text-decoration: none;
+  color: #333;
+  font-family: "NewYork";
+}
+
+.header .nav a span {
+  font-size: 1.65rem;
+}
+
+@media (max-width: 47.938em) {
+  .header .nav a span {
+    font-size: 1.275rem;
+  }
+}
+
+.hero {
+  height: 100vh;
+  background-image: url("https://res.cloudinary.com/dqv9mfbvt/image/upload/v1605010966/WeddingImage_koqhqm.jpg");
+  background-position: center center;
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+}
+
+.hero .box {
+  padding-top: 6.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero .box span {
+  font-family: "NewYork";
+  font-size: 1.55rem;
+  color: #333;
+}
+
+@media (max-width: 47.938em) {
+  .hero .box span {
+    white-space: nowrap;
+    font-size: 1.25rem;
+  }
+}
+
+.hero .box h1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-family: "NewYork";
+  font-size: 6.25rem;
+}
+
+@media (max-width: 47.938em) {
+  .hero .box h1 {
+    font-size: 3rem;
+    white-space: nowrap;
+  }
+}
+
+.One {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.One .box span {
+  font-size: 1.25rem;
+  font-weight: lighter;
+  color: #333;
+}
+
+.One .box .inner {
+  padding: 0 10rem;
+}
+
+@media (max-width: 47.938em) {
+  .One .box .inner {
+    padding: 0 0;
+  }
+}
+
+.One .box .inner strong {
+  color: #f69e7b;
+}
+
+.One .box .inner #description {
+  font-family: "NewYork";
+  text-align: center;
+  line-height: 120.7%;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+@media (max-width: 47.938em) {
+  .One .box .inner #description {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 40em) {
+  .One .box .inner #description {
+    font-size: 3rem;
+  }
+}
+
+.One .box p {
+  line-height: 175.3%;
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: lighter;
+}
+
+:root {
+  --text: #333;
+  --line: #f9b384;
+  --line-active: #f69e7b;
+}
+
+.two {
+  background-color: #dbebe5;
+}
+
+.two .box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+}
+
+@media (max-width: 47.938em) {
+  .two .box {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+.two .box span {
+  font-family: "NewYork";
+}
+
+.two .box a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 var(--spacing, 0px);
+  -webkit-transition: margin 0.25s;
+  transition: margin 0.25s;
+}
+
+.two .box a svg {
+  width: 200px;
+  height: 53px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translate(-50%, 7px) translateZ(0);
+          transform: translate(-50%, 7px) translateZ(0);
+  fill: none;
+  stroke: var(--stroke, var(--line));
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke-dasharray: var(--offset, 69px) 278px;
+  stroke-dashoffset: 361px;
+  -webkit-transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+  transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+}
+
+.two .box a:hover {
+  --spacing: 10px;
+  --stroke: var(--line-active);
+  --stroke-delay: 0.1s;
+  --offset: 180px;
+}
+
+.two .box h2 {
+  font-family: "NewYork";
+  font-size: 3rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 47.938em) {
+  .two .box h2 {
+    white-space: nowrap;
+    font-size: 2.125rem;
+  }
+}
+
+.two .box .col-1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 1 / 2 / 2;
+  text-align: center;
+}
+
+@media (max-width: 47.938em) {
+  .two .box .col-1 {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+}
+
+.two .box .col-2 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 2 / 2 / 3;
+  text-align: center;
+}
+
+@media (max-width: 47.938em) {
+  .two .box .col-2 {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 2 / 1 / 3 / 2;
+  }
+}
+
+.three {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.three a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 var(--spacing, 0px);
+  -webkit-transition: margin 0.25s;
+  transition: margin 0.25s;
+}
+
+.three a svg {
+  width: 200px;
+  height: 53px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translate(-50%, 7px) translateZ(0);
+          transform: translate(-50%, 7px) translateZ(0);
+  fill: none;
+  stroke: var(--stroke, var(--line));
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke-dasharray: var(--offset, 69px) 278px;
+  stroke-dashoffset: 361px;
+  -webkit-transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+  transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+}
+
+.three a:hover {
+  --spacing: 10px;
+  --stroke: var(--line-active);
+  --stroke-delay: 0.1s;
+  --offset: 180px;
+}
+
+.three .box h1 {
+  font-family: "NewYork";
+  font-size: 4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.three .box #title {
+  font-family: unset;
+}
+
+.three .box span {
+  font-size: 1.35rem;
+  font-weight: lighter;
+  color: #333;
+  font-family: "NewYork";
+}
+
+.three .box #description {
+  font-family: "NewYork";
+  text-align: center;
+  line-height: 120.7%;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+.three .box #description strong {
+  color: #f69e7b;
+}
+
+@media (max-width: 47.938em) {
+  .three .box #description {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 40em) {
+  .three .box #description {
+    font-size: 4rem;
+  }
+}
+
+.three .box .para {
+  padding: 0 10rem;
+}
+
+@media (max-width: 47.938em) {
+  .three .box .para {
+    padding: 0 0;
+  }
+}
+
+.three .box .para p {
+  line-height: 135.3%;
+  font-size: 1.35rem;
+  color: #333;
+  font-weight: lighter;
+}
+
+.four {
+  background-color: #dbebe5;
+}
+
+.four .horizontal-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.four .horizontal-wrapper .leftColumn .title {
+  font-size: 2.75rem;
+  font-family: "NewYork";
+  color: #333;
+}
+
+.four .horizontal-wrapper .rightColumn strong {
+  color: #f69e7b;
+}
+
+.four .horizontal-wrapper .rightColumn .heading {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 47.938em) {
+  .four .horizontal-wrapper .rightColumn .heading {
+    margin-top: 0;
+  }
+}
+
+.four .horizontal-wrapper .rightColumn .heading h2 {
+  font-family: "NewYork";
+  font-size: 1.5rem;
+  color: #333;
+  -webkit-font-kerning: auto;
+          font-kerning: auto;
+}
+
+.four .horizontal-wrapper .rightColumn .description {
+  line-height: 179.3%;
+  font-size: 1.45rem;
+  font-weight: lighter;
+  color: #333;
+}
+
+@media (max-width: 63.9375em) {
+  .four .horizontal-wrapper .rightColumn .description {
+    font-size: 1.25rem;
+  }
+}
+
+.content {
+  border: 1px solid #eee;
+  padding: 3rem;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.content--feature {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  min-height: 0;
+}
+
+.content .content__breakout {
+  margin: 0 -3rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: span, "NewYork", serif;
+  color: #d6d6d6;
+}
+
+.content .content__breakout--big {
+  font-size: 5.5vw;
+  font-family: "NewYork";
+}
+
+.content .content__breakout--medium {
+  font-size: 6vw;
+}
+
+.content .block {
+  position: relative;
+}
+
+.content .block .img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.content .block .img-wrapper .img-main {
+  opacity: 0.75;
+  mix-blend-mode: multiply;
+  width: 300px;
+}
+
+.content .block .img-wrapper .img-main .image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.five {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.five h1 {
+  font-size: 2rem;
+  font-family: "NewYork";
+  color: #333;
+}
+
+.five .para {
+  padding: 0 10rem;
+}
+
+@media (max-width: 47.938em) {
+  .five .para {
+    padding: 0 0;
+  }
+}
+
+.five .para p {
+  font-weight: lighter;
+  line-height: 190%;
+}
+
+.five .items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 63.9375em) {
+  .five .items {
+    -ms-grid-columns: (minmax(220px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.five .items h1 {
+  color: #888888;
+}
+
+.five .items .two,
+.five .items .four,
+.five .items .six {
+  background-color: #fff;
+}
+
+.five .items .two h1,
+.five .items .four h1,
+.five .items .six h1 {
+  font-family: Impact, sans-serif;
+}
+
+.six {
+  background-color: #dbebe5;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.six .titlebox {
+  padding: 0 15rem;
+}
+
+@media (min-width: 40em) {
+  .six .titlebox {
+    padding: 0 10rem;
+  }
+}
+
+@media (max-width: 47.938em) {
+  .six .titlebox {
+    padding: 0 0;
+  }
+}
+
+.six .titlebox h1 {
+  font-family: "NewYork";
+  color: #333;
+  line-height: 160%;
+  -webkit-font-kerning: auto;
+          font-kerning: auto;
+}
+
+.six .titlebox .btn {
+  position: relative;
+  background-color: #87d4c5;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  padding: 1rem 3rem;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 3px;
+  letter-spacing: 2.5px;
+}
+
+.six .titlebox .btn:after {
+  content: "";
+  background: #000;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.six .titlebox .btn:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.footer {
+  background-color: #87d4c5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.footer h1 {
+  font-family: "NewYork";
+  font-size: 2rem;
+  color: #333;
+}
+
+.footer h2 {
+  font-size: 1.25rem;
+  color: #333;
+  font-family: "NewYork";
+}
+/*# sourceMappingURL=style.css.map */

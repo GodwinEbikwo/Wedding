@@ -1,0 +1,49 @@
+.five {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    font-family: "NewYork";
+    color: #333;
+  }
+
+  .para {
+    padding: 0 10rem;
+    @include breakpoint-down(small) {
+      padding: 0 0;
+    }
+
+    p {
+      font-weight: lighter;
+      line-height: 190%;
+    }
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+
+    @include breakpoint-down(medium) {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    h1 {
+      color: rgb(136, 136, 136);
+    }
+
+    .two,
+    .four,
+    .six {
+      background-color: #fff;
+      h1 {
+        font-family: Impact, sans-serif;
+      }
+    }
+  }
+}

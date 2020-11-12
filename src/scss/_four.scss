@@ -1,0 +1,49 @@
+.four {
+  background-color: $wd-green;
+
+  .horizontal-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .leftColumn {
+      .title {
+        font-size: 2.75rem;
+        font-family: "NewYork";
+        color: #333;
+        // margin-bottom: 2rem;
+      }
+    }
+
+    .rightColumn {
+      strong {
+        color: #f69e7b;
+      }
+
+      .heading {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        @include breakpoint-down(small) {
+          margin-top: 0;
+        }
+
+        h2 {
+          font-family: "NewYork";
+          font-size: 1.5rem;
+          color: #333;
+          font-kerning: auto;
+        }
+      }
+      .description {
+        line-height: 179.3%;
+        font-size: 1.45rem;
+        font-weight: lighter;
+        color: #333;
+        @include breakpoint-down(medium) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}
