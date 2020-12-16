@@ -16,7 +16,7 @@
   </head>
   <body>
     <main data-scroll-container>
-      <header class="header">
+      <header class="header" data-scroll-section>
         <div class="nav">
           <a href="#">
             <span>Details</span>
@@ -30,7 +30,7 @@
         </div>
       </header>
 
-      <section class="hero">
+      <section class="hero" data-scroll-section>
         <div class="box">
           <span data-scroll data-scroll-speed="3">- 06.01.2020 -</span>
           <h1 data-scroll data-scroll-speed="2">Adaeze & Ifeyani</h1>
@@ -38,7 +38,7 @@
         </div>
       </section>
 
-      <section class="One">
+      <section class="One" data-scroll-section>
         <div class="box container container--pall">
           <span data-scroll data-scroll-speed="4">A match made in heaven</span>
           <div class="inner">
@@ -56,7 +56,7 @@
         </div>
       </section>
 
-      <section class="two">
+      <section class="two" data-scroll-section>
         <div class="box container container--pall">
           <div class="col-1">
             <span>When</span>
@@ -90,7 +90,7 @@
         </div>
       </section>
 
-      <section class="three">
+      <section class="three" data-scroll-section>
         <div class="box container container--pall">
           <span id="title">Accomodations</span>
           <h1>The Hiton Hotel</h1>
@@ -119,7 +119,7 @@
         </div>
       </section>
 
-      <section class="four">
+      <section class="four" data-scroll-section>
         <div class="container container--pall">
           <div class="horizontal-wrapper">
             <div class="leftColumn">
@@ -159,7 +159,7 @@
         </div>
       </section>
 
-      <section class="five">
+      <section class="five" data-scroll-section>
         <div class="container container--pall">
           <h1>The Registry</h1>
           <div class="para">
@@ -193,7 +193,7 @@
         </div>
       </section>
 
-      <section class="content content--feature">
+      <section class="content content--feature" data-scroll-section>
         <p
           class="content__breakout content__breakout--big"
           data-scroll
@@ -210,26 +210,9 @@
         >
           Come and celebrate with us!
         </p>
-
-        <!-- <div class="block" data-scroll data-scroll-speed="4">
-          <div class="img-wrapper" data-scroll data-scroll-repeat>
-            <div
-              class="img-main"
-              data-scroll
-              data-scroll-speed="-2"
-              data-scroll-call="dynamicBackground"
-            >
-              <img
-                class="image"
-                src="https://res.cloudinary.com/dqv9mfbvt/image/upload/v1597584392/muhamad-iqbal-akbar-RLfe-8cfVj4-unsplash_hnb8dy.jpg"
-                alt="img"
-              />
-            </div>
-          </div>
-        </div> -->
       </section>
 
-      <section class="six">
+      <section class="six" data-scroll-section>
         <div class="container container--pall">
           <div class="titlebox">
             <h1 data-scroll data-scroll-speed="1">
@@ -240,7 +223,7 @@
         </div>
       </section>
 
-      <footer class="footer">
+      <footer class="footer" data-scroll-section>
         <div class="container container--pall">
           <h1>- Adaeze & Ifeyani -</h1>
           <h2>- Save the date 13/11/2020 -</h2>
@@ -256,7 +239,7 @@
         var scroll = new LocomotiveScroll({
           el: document.querySelector("[data-scroll-container]"),
           smooth: true,
-          smoothMobile: true,
+          smoothMobile: false,
         });
       })();
     </script>
